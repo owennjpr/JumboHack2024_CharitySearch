@@ -6,6 +6,8 @@ const BASE_URL = 'https://partners.every.org/v0.2/nonprofit/maps?apiKey=';
 const API_URL = BASE_URL + API_KEY;
 // const searchURL = BASE_URL + '/search/movie?'+API_KEY;
 
+const tagsEl = document.getElementById('tags');
+
 
 res = fetch("https://partners.every.org/v0.2/nonprofit/maps?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 			.then (res => res.text())
@@ -13,6 +15,15 @@ res = fetch("https://partners.every.org/v0.2/nonprofit/maps?apiKey=pk_live_3fcf5
 			{
 				data = JSON.parse(data);
                 console.log(data);
+                // gets charity tags
+                const tags = data.data.nonprofitTags;
+
+                // sends each tag to makeTag
+                for (const element of tags) {
+                    makeTag(element);
+                    console.log(element.tagName);
+                }
+                console.log(tags)
 				// alert(JSON.stringify(data));
 				// let name = data.name;
 				// let age = data.age;
@@ -20,6 +31,43 @@ res = fetch("https://partners.every.org/v0.2/nonprofit/maps?apiKey=pk_live_3fcf5
 				// document.getElementById("fetchData").innerHTML = "guess of age based on name " + name + ": " + age + ". This means you would be born in " + count;
 			})
 			.catch (error => console.log(error))
+
+// makes each tag element
+function makeTag(tag) {
+    // tagsEl.innerHTML = '';
+
+    // const elm = document.createElement('div');
+    // elm.classList.add('tag');
+    // elm.id=tag.tagName;
+    // elm.innerText = tag.title;
+
+    inner = `<button class="btn filters" id="${tag.tagName}" onclick="searchTag(${tag.tagName})" >${tag.title}</button>`
+    console.log("AFTER INNER MADE");
+    // should add event listener when ready
+
+    // elm.addEventListener('click', () => {
+    //     // if(selectedGenre.length == 0){
+    //     //     selectedGenre.push(genre.id);
+    //     // }else{
+    //     //     if(selectedGenre.includes(genre.id)){
+    //     //         selectedGenre.forEach((id, idx) => {
+    //     //             if(id == genre.id){
+    //     //                 selectedGenre.splice(idx, 1);
+    //     //             }
+    //     //         })
+    //     //     }else{
+    //     //         selectedGenre.push(genre.id);
+    //     //     }
+    //     // }
+    //     // console.log(selectedGenre)
+    //     getMovies(API_URL + '&with_genres='+encodeURI(selectedGenre.join(',')))
+    //     highlightSelection()
+    // })
+    // tagsEl.append(elm);
+
+    tagsEl.innerHTML += inner;
+
+}
 
 // console.log("hiiiiii");
 // fetch("https://partners.every.org/v0.2/nonprofit/maps?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
