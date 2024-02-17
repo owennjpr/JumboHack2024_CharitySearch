@@ -1,0 +1,44 @@
+/*background color and image*/
+body {background-color: #715030;}
+div.background{ background-image: URL('background_home.jpg');
+background-repeat: no-repeat; display: block; background-size: 100%; background-position-y: center;}
+
+/*menu styling*/
+div.menu{ background-color: #d8b386; display: table; /* keep the background color wrapped tight */
+  margin: 10px auto 10px auto; /* keep the table centered */
+  padding:50px;}
+
+/*font styling*/
+h1 {color : #d8b386; font-family:georgia,times; text-align:center; padding-top: 20px; padding-bottom: 25px; border-bottom: 1px solid #9f8462}
+h2 {color : #715030; font-family:georgia,times; text-align:center;}
+h3 {color : #715030; font-family:georgia,times; text-align:center;}
+h4 {color : #d8b386; font-family:georgia,times; text-align:center; padding-top: 50px; padding-bottom: 50px; font-size: 50px;}
+h5 {color : #d8b386; font-family:georgia,times; text-align:center; padding-top: 15px; padding-bottom: 150px; font-size: 25px;}
+a {color: #d8b386; font-family:georgia,times; text-align:center;  font-size: 18px; font-weight: bold;}
+
+/*logo styling*/
+.logo {max-width:16%; height:auto; padding: 20px;}
+
+/*tab bar styling*/
+ul.nav a{text-decoration:none; color: #d8b386; font-size: 25px; padding-top: 5px}
+ul.nav a:hover {border-bottom: 1px solid #9f8462}
+ul.nav{list-style-type:none; position: relative; float:right;}
+ul.nav li {display: inline-block; padding: 0 50px}
+@media (max-width: 1150px)
+{
+    ul.nav li {padding: 0 10px}
+}
+
+@media (max-width: 700px)
+{
+    ul.nav li {padding: 0 10px}
+    ul.nav a {font-size: 18;}
+    h1 {font-size: 24px;}
+    h2 {font-size: 20px;}
+    h3 {font-size: 18;}
+    h4 {font-size: 30;}
+    h5 {font-size: 18;}
+}
+
+/*footer fixed page element*/
+.footer { position: fixed; left: 0; bottom: 0; width: 100%; background-color: #49341f; padding-top: 20px; padding-bottom: 20px; text-align: center;}
