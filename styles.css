@@ -72,11 +72,20 @@ ul.nav li {display: inline-block; padding: 0 50px}
 
 /* button things */
 .btn {
-  font-family: inherit;
+  font-family: Helvetica;
   border: none;
   background-color: inherit;
   padding: 14px 28px;
   font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btttn {
+  font-family: Helvetica;
+  border: none;
+  background-color: inherit;
+  font-size: 22px;
   cursor: pointer;
   display: inline-block;
 }
@@ -96,8 +105,4 @@ ul.nav li {display: inline-block; padding: 0 50px}
   color: #049ac8;
 }
 
-.orgName:hover {
-  background-color: #049ac8;
-  color: white;
-}
-
+.orgPic {float: left; height:100px; margin-right:10px}
