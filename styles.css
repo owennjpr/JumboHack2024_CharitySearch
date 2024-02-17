@@ -45,6 +45,7 @@ ul.nav li {display: inline-block; padding: 0 50px}
 
 /* button things */
 .btn {
+  font-family: inherit;
   border: none;
   background-color: inherit;
   padding: 14px 28px;
