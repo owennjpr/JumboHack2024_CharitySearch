@@ -120,18 +120,30 @@ function makeTags() {
 }
 
 function searchTag(tag) {
-    console.log("IN SEARCH TAG: " + tag);
+    // console.log("IN SEARCH TAG: " + tag);
 
     // fetch("https://partners.every.org/v0.2/browse/animals?apiKey=myPublicApiKey");
-    console.log("HERE IS THE FETCH CALL: " + "https://partners.every.org/v0.2/browse/" + tag + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+    // console.log("HERE IS THE FETCH CALL: " + "https://partners.every.org/v0.2/browse/" + tag + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
     res = fetch("https://partners.every.org/v0.2/browse/" + tag + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
-    // // res = fetch("https://partners.every.org/v0.2/browse/animals?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
-    // res = fetch("https://partners.every.org/v0.2/nonprofit/5f2d3b1f-7634-4551-8a3e-934ee04fb279?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 			.then (res => res.text())
 			.then (data => 
 			{
 				data = JSON.parse(data);
                 console.log(data);
+
+                const orgs = data.nonprofits;
+                for (const element of orgs) {
+                    displayOrg(element);
+                    // console.log(element.tagName);
+                }
+                // gets charity tags
+//                 const tags = data.data.nonprofitTags;
+
+//                 // sends each tag to makeTag
+//                 for (const element of tags) {
+//                     makeTag(element);
+//                     console.log(element.tagName);
+//                 }
                 // gets charity tags
                 // const tags = data.data.nonprofitTags;
 
@@ -148,6 +160,11 @@ function searchTag(tag) {
 				// document.getElementById("fetchData").innerHTML = "guess of age based on name " + name + ": " + age + ". This means you would be born in " + count;
 			})
 			.catch (error => console.log(error))
+}
+
+function displayOrg(elm) {
+    console.log(elm.name);
+    console.log(elm.description);
 }
 
 // console.log("hiiiiii");
