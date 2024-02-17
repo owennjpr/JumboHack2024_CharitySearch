@@ -1,15 +1,15 @@
 /*background color and image*/
 body {background-color: #f6f0e9;}
-/* div.background{ background-image: URL('background_home.jpg');
-background-repeat: no-repeat; display: block; background-size: 100%; background-position-y: center;} */
+ div.background{ background-color: #659e66;
+background-repeat: no-repeat; display: block; background-size: 100%; background-position-y: top;} */
 
 /*menu styling*/
-div.menu{ background-color: #fcfcfc; display: table; /* keep the background color wrapped tight */
+div.menu{ background-color: #659e66; display: table; /* keep the background color wrapped tight */
   margin: 10px auto 10px auto; /* keep the table centered */
   padding:50px;}
 
 /*font styling*/
-h1 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 20px; padding-bottom: 25px; border-bottom: 1px solid #9f8462}
+h1 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 20px; padding-bottom: 25px; border-bottom: 1px solid #74c074}
 h2 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center;}
 h3 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center;}
 h4 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 50px; padding-bottom: 50px; font-size: 50px;}
@@ -17,11 +17,11 @@ h5 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; paddi
 a {color: #f6f0e9; font-family:Helvetica, sans-serif; text-align:center;  font-size: 18px; font-weight: bold;}
 
 /*logo styling*/
-.logo {max-width:10%; height:auto; padding: 10px;}
+.logo {max-width:7%; height:auto; padding: 10px;}
 
 /*tab bar styling*/
-ul.nav a{text-decoration:none; color: #659e66; font-size: 25px; padding-top: 5px}
-ul.nav a:hover {border-bottom: 1px solid #659e66}
+ul.nav a{text-decoration:none; color: #f6f0e9; font-size: 30px; padding-top: 10px; text-align: center;}
+ul.nav a:hover {border-bottom: 10px solid #74c074}
 ul.nav{list-style-type:none; position: relative; float:right;}
 ul.nav li {display: inline-block; padding: 0 50px}
 @media (max-width: 1150px)
