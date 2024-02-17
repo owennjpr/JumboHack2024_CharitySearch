@@ -17,7 +17,9 @@ h1 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; paddi
   text-align:center;
   font-size: 20;
   padding-bottom: 10px;
-  padding-top: 0px;}
+  padding-top: 0px;
+  padding-left: 50px;
+  padding-right: 50px;}
 
 
 h6 {color : #f6f0e9; font-family:Helvetica, sans-serif; text-align:left; padding-top: 10px; padding-bottom: 150px; font-size: 25px;}
@@ -52,16 +54,18 @@ ul.nav {
 
 .tag-holder {
   border: #2d2d2d;
-  border-style: double;
-  border-width: 10px;
-  padding: 10px;
-  background-color: #f4ebd9;
+  border-style: solid;
+  border-width: 4px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
 }
 
 /*tab bar styling*/
 ul.nav a{text-decoration:none; color: #f6f0e9; font-size: 25px; padding-top: 10px; }
-ul.nav a:hover {color: #74c074;}
+ul.nav a:hover {color: #cfefcf;}
 ul.nav{list-style-type:none;}
 ul.nav li {display: inline-block; padding: 0 50px}
 
@@ -98,10 +102,12 @@ ul.nav li {display: inline-block; padding: 0 50px}
   font-family: Helvetica;
   border: none;
   background-color: inherit;
-  padding: 14px 28px;
+  padding: 14px 14px;
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
+  border: none;
+  border-radius: 10pt;
 }
 
 .btttn {
