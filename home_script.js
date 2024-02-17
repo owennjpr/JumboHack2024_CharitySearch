@@ -176,7 +176,9 @@ function displayOrg(elm) {
                 console.log(data)
                 let description = data.data.nonprofit.description;
                 console.log(data.data.nonprofit.websiteUrl + "     EIN");
-                let inner = `<div class="org-list"> <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
+                // let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.coverImageUrl}" alt="orgPic" class="orgPic">
+                let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.logoUrl}" alt="orgPic" class="orgPic">
+
                 <a href="${data.data.nonprofit.websiteUrl}">${elm.name}</a>
                 </br>
                 <h8>
@@ -198,7 +200,8 @@ function displayOrg(elm) {
                 console.log(data)
                 let description = data.data.nonprofit.description;
                 console.log(data.data.nonprofit.websiteUrl);
-                let inner = `<div class="org-list"> <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
+                // let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.coverImageUrl}" alt="orgPic" class="orgPic">
+                let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.logoUrl}" alt="orgPic" class="orgPic">
                 <a href="${data.data.nonprofit.websiteUrl}">${elm.name}</a>
 
                 </br>
