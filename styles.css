@@ -1,10 +1,10 @@
 /*background color and image*/
 body {background-color: #f6f0e9;}
- div.background{ background-color: #5b8d5b;
+ div.background{ background-color: #2d2d2d;
 background-repeat: no-repeat; display: block; background-size: 100%; background-position-y: top;} */
 
 /*menu styling*/
-div.menu{ background-color: #5b8d5b; display: table; /* keep the background color wrapped tight */
+div.menu{ background-color: #2d2d2d; display: table; /* keep the background color wrapped tight */
   margin: 10px auto 10px auto; /* keep the table centered */
   padding:50px;}
 
@@ -26,7 +26,7 @@ a {color: #f6f0e9; font-family:Helvetica, sans-serif; text-align:center;  font-s
 }
 
 /*logo styling*/
-.logo {max-width:7%; height:auto; padding: 10px;}
+.logo {height:50px; padding: 10px;}
 
 /* title styling */
 .title-txt {
@@ -35,15 +35,17 @@ a {color: #f6f0e9; font-family:Helvetica, sans-serif; text-align:center;  font-s
   font-family:Helvetica, sans-serif;
 }
 
-.nav {
+ul.nav {
   display: inline-block;
   vertical-align: middle;
+  position: absolute;
+  right: 0;
 }
 
 /*tab bar styling*/
-ul.nav a{text-decoration:none; color: #f6f0e9; font-size: 30px; padding-top: 10px; }
-ul.nav a:hover {border-bottom: 10px solid #74c074}
-ul.nav{list-style-type:none; position: relative;}
+ul.nav a{text-decoration:none; color: #f6f0e9; font-size: 25px; padding-top: 10px; }
+ul.nav a:hover {color: #74c074;}
+ul.nav{list-style-type:none;}
 ul.nav li {display: inline-block; padding: 0 50px}
 
 
@@ -64,7 +66,7 @@ ul.nav li {display: inline-block; padding: 0 50px}
 }
 
 /*footer fixed page element*/
-.footer { position: fixed; left: 0; bottom: 0; width: 100%; background-color: #659e66; padding-top: 20px; padding-bottom: 20px; text-align: center;}
+.footer { position: fixed; left: 0; bottom: 0; width: 100%; background-color: #5b8d5b; padding-top: 20px; padding-bottom: 20px; text-align: center;}
 
 /* button things */
 .btn {
