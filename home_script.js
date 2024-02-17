@@ -8,22 +8,139 @@ const API_URL = BASE_URL + API_KEY;
 
 const tagsEl = document.getElementById('tags');
 
+const causes = [
+    "aapi-led",
+    "adoption",
+    "afghanistan",
+    "animals",
+    "art",
+    "athletics",
+    "autism",
+    "black-led",
+    "buddhism",
+    "cancer",
+    "cats",
+    "christianity",
+    "climate",
+    "conservation",
+    "coronavirus",
+    "culture",
+    "dance",
+    "disabilities",
+    "disease",
+    "dogs",
+    "education",
+    "environment",
+    "filmandtv",
+    "food-security",
+    "freepress",
+    "gender-equality",
+    "health",
+    "hinduism",
+    "housing",
+    'humans',
+    "hurricane-ian",
+    "immigrants",
+    "indigenous-led",
+    "indigenous-peoples",
+    "islam",
+    "judaism",
+    "justice",
+    "latine-led",
+    "legal",
+    "lgbt",
+    "libraries",
+    "mental-health",
+    "museums",
+    "music",
+    "oceans",
+    "parks",
+    "poverty",
+    "racial-justice",
+    "radio",
+    "refugees",
+    "religion",
+    "research",
+    "science",
+    "seniors",
+    "space",
+    "theater",
+    "transgender",
+    "ukraine",
+    "veterans",
+    "votingrights",
+    "water",
+    "wildfires",
+    "wildlife",
+    "women-led",
+    "womens-health",
+    "youth"
+]
 
-res = fetch("https://partners.every.org/v0.2/nonprofit/maps?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+makeTags();
+
+// for 
+
+// res = fetch("https://partners.every.org/v0.2/nonprofit/maps?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+// 			.then (res => res.text())
+// 			.then (data => 
+// 			{
+// 				data = JSON.parse(data);
+//                 console.log(data);
+//                 // gets charity tags
+//                 const tags = data.data.nonprofitTags;
+
+//                 // sends each tag to makeTag
+//                 for (const element of tags) {
+//                     makeTag(element);
+//                     console.log(element.tagName);
+//                 }
+//                 console.log(tags)
+// 				// alert(JSON.stringify(data));
+// 				// let name = data.name;
+// 				// let age = data.age;
+// 				// let count = data.count;
+// 				// document.getElementById("fetchData").innerHTML = "guess of age based on name " + name + ": " + age + ". This means you would be born in " + count;
+// 			})
+// 			.catch (error => console.log(error))
+
+// makes each tag element
+function makeTags() {
+    let inner = "";
+    for (const elm of causes) {
+        inner += `<button class="btn filters" id="${elm}" onclick=searchTag("${elm}") >${elm}</button>`
+        console.log(elm);
+
+    }
+
+    // inner = `<button class="btn filters" id="${tag.tagName}" onclick="searchTag(${tag.tagName})" >${tag.title}</button>`
+    // console.log("AFTER INNER MADE");
+    tagsEl.innerHTML = inner;
+
+}
+
+function searchTag(tag) {
+    console.log("IN SEARCH TAG: " + tag);
+
+    // fetch("https://partners.every.org/v0.2/browse/animals?apiKey=myPublicApiKey");
+    console.log("HERE IS THE FETCH CALL: " + "https://partners.every.org/v0.2/browse/" + tag + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+    res = fetch("https://partners.every.org/v0.2/browse/" + tag + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+    // // res = fetch("https://partners.every.org/v0.2/browse/animals?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+    // res = fetch("https://partners.every.org/v0.2/nonprofit/5f2d3b1f-7634-4551-8a3e-934ee04fb279?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 			.then (res => res.text())
 			.then (data => 
 			{
 				data = JSON.parse(data);
                 console.log(data);
                 // gets charity tags
-                const tags = data.data.nonprofitTags;
+                // const tags = data.data.nonprofitTags;
 
-                // sends each tag to makeTag
-                for (const element of tags) {
-                    makeTag(element);
-                    console.log(element.tagName);
-                }
-                console.log(tags)
+                // // sends each tag to makeTag
+                // for (const element of tags) {
+                //     makeTag(element);
+                //     console.log(element.tagName);
+                // }
+                // console.log(tags)
 				// alert(JSON.stringify(data));
 				// let name = data.name;
 				// let age = data.age;
@@ -31,42 +148,6 @@ res = fetch("https://partners.every.org/v0.2/nonprofit/maps?apiKey=pk_live_3fcf5
 				// document.getElementById("fetchData").innerHTML = "guess of age based on name " + name + ": " + age + ". This means you would be born in " + count;
 			})
 			.catch (error => console.log(error))
-
-// makes each tag element
-function makeTag(tag) {
-    // tagsEl.innerHTML = '';
-
-    // const elm = document.createElement('div');
-    // elm.classList.add('tag');
-    // elm.id=tag.tagName;
-    // elm.innerText = tag.title;
-
-    inner = `<button class="btn filters" id="${tag.tagName}" onclick="searchTag(${tag.tagName})" >${tag.title}</button>`
-    console.log("AFTER INNER MADE");
-    // should add event listener when ready
-
-    // elm.addEventListener('click', () => {
-    //     // if(selectedGenre.length == 0){
-    //     //     selectedGenre.push(genre.id);
-    //     // }else{
-    //     //     if(selectedGenre.includes(genre.id)){
-    //     //         selectedGenre.forEach((id, idx) => {
-    //     //             if(id == genre.id){
-    //     //                 selectedGenre.splice(idx, 1);
-    //     //             }
-    //     //         })
-    //     //     }else{
-    //     //         selectedGenre.push(genre.id);
-    //     //     }
-    //     // }
-    //     // console.log(selectedGenre)
-    //     getMovies(API_URL + '&with_genres='+encodeURI(selectedGenre.join(',')))
-    //     highlightSelection()
-    // })
-    // tagsEl.append(elm);
-
-    tagsEl.innerHTML += inner;
-
 }
 
 // console.log("hiiiiii");
