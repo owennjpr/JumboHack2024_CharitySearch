@@ -175,9 +175,9 @@ function displayOrg(elm) {
                 data = JSON.parse(data);
                 console.log(data)
                 let description = data.data.nonprofit.description;
-                console.log(description + "     EIN");
+                console.log(data.data.nonprofit.websiteUrl + "     EIN");
                 let inner = `<div class="org-list"> <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
-                <a href="${elem.websiteURL}">${elem.name}</a>
+                <a href="${data.data.nonprofit.websiteUrl}">${elm.name}</a>
                 </br>
                 <h8>
                     ${description}
@@ -197,9 +197,9 @@ function displayOrg(elm) {
                 data = JSON.parse(data);
                 console.log(data)
                 let description = data.data.nonprofit.description;
-                console.log(description);
+                console.log(data.data.nonprofit.websiteUrl);
                 let inner = `<div class="org-list"> <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
-                <a href="${elem.websiteURL}">${elem.name}</a>
+                <a href="${data.data.nonprofit.websiteUrl}">${elm.name}</a>
 
                 </br>
                 <h8>
