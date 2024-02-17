@@ -177,7 +177,7 @@ function displayOrg(elm) {
                 let description = data.data.nonprofit.description;
                 console.log(description + "     EIN");
                 let inner = `<div class="org-list"> <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
-                <button class="btttn orgName">${elm.name}</button>
+                <a href="${elem.websiteURL}">${elem.name}</a>
                 </br>
                 <h8>
                     ${description}
@@ -199,7 +199,8 @@ function displayOrg(elm) {
                 let description = data.data.nonprofit.description;
                 console.log(description);
                 let inner = `<div class="org-list"> <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
-                <button class="btttn orgName">${elm.name}</button>
+                <a href="${elem.websiteURL}">${elem.name}</a>
+
                 </br>
                 <h8>
                     ${description}
