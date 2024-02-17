@@ -4,12 +4,12 @@ body {background-color: #f6f0e9;}
 background-repeat: no-repeat; display: block; background-size: 100%; background-position-y: center;} */
 
 /*menu styling*/
-div.menu{ background-color: #fcfcfc; display: table; /* keep the background color wrapped tight */
+div.menu{ background-color: #659e66; display: table; /* keep the background color wrapped tight */
   margin: 10px auto 10px auto; /* keep the table centered */
   padding:50px;}
 
 /*font styling*/
-h1 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 20px; padding-bottom: 25px; border-bottom: 1px solid #9f8462}
+h1 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 20px; padding-bottom: 25px; border-bottom: 1px solid #74c074}
 h2 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center;}
 h3 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center;}
 h4 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 50px; padding-bottom: 50px; font-size: 50px;}
