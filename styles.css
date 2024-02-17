@@ -1,10 +1,10 @@
 /*background color and image*/
 body {background-color: #f6f0e9;}
- div.background{ background-color: #659e66;
+ div.background{ background-color: #5b8d5b;
 background-repeat: no-repeat; display: block; background-size: 100%; background-position-y: top;} */
 
 /*menu styling*/
-div.menu{ background-color: #659e66; display: table; /* keep the background color wrapped tight */
+div.menu{ background-color: #5b8d5b; display: table; /* keep the background color wrapped tight */
   margin: 10px auto 10px auto; /* keep the table centered */
   padding:50px;}
 
@@ -14,16 +14,39 @@ h2 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center;}
 h3 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center;}
 h4 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 50px; padding-bottom: 50px; font-size: 50px;}
 h5 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 15px; padding-bottom: 150px; font-size: 25px;}
+h6 {color : #f6f0e9; font-family:Helvetica, sans-serif; text-align:left; padding-top: 10px; padding-bottom: 150px; font-size: 25px;}
+
 a {color: #f6f0e9; font-family:Helvetica, sans-serif; text-align:center;  font-size: 18px; font-weight: bold;}
+
+
+/* logo + title */
+.logo-title {
+  display: inline-flex;
+  align-items: center;
+}
 
 /*logo styling*/
 .logo {max-width:7%; height:auto; padding: 10px;}
 
+/* title styling */
+.title-txt {
+  font-size: 25px;
+  color: #f6f0e9;
+  font-family:Helvetica, sans-serif;
+}
+
+.nav {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /*tab bar styling*/
-ul.nav a{text-decoration:none; color: #f6f0e9; font-size: 30px; padding-top: 10px; text-align: center;}
+ul.nav a{text-decoration:none; color: #f6f0e9; font-size: 30px; padding-top: 10px; }
 ul.nav a:hover {border-bottom: 10px solid #74c074}
-ul.nav{list-style-type:none; position: relative; float:right;}
+ul.nav{list-style-type:none; position: relative;}
 ul.nav li {display: inline-block; padding: 0 50px}
+
+
 @media (max-width: 1150px)
 {
     ul.nav li {padding: 0 10px}
