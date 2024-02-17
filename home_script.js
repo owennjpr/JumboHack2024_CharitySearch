@@ -165,20 +165,58 @@ function searchTag(tag) {
 
 function displayOrg(elm) {
     // console.log(elm.name);
-    console.log(elm.logURL);
+    // console.log(elm.logURL);
+    let description = "";
+    if (!(elm.ein === undefined)) {
+        res = fetch("https://partners.every.org/v0.2/nonprofit/" + elm.ein + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+            .then (res => res.text())
+            .then (data => 
+            {
+                data = JSON.parse(data);
+                console.log(data)
+                let description = data.data.nonprofit.description;
+                console.log(description + "     EIN");
+                let inner = `<div class="org-list"> <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
+                <button class="btttn orgName">${elm.name}</button>
+                </br>
+                <h8>
+                    ${description}
+                </h8>
+                </div>
+                <hr>`  
+                
+                orgsEl.innerHTML += inner;
 
-    let inner = `<div class="org-list"> <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
-    <button class="btttn orgName">${elm.name}</button>
-    </br>
-    <h8>
-        ${elm.description}
-    </h8>
-    </div>
-    <hr>`
+            })
+    } else {
+        console.log("slug alert");
+        res = fetch("https://partners.every.org/v0.2/nonprofit/" + elm.slug + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+            .then (res => res.text())
+            .then (data => 
+            {
+                data = JSON.parse(data);
+                console.log(data)
+                let description = data.data.nonprofit.description;
+                console.log(description);
+                let inner = `<div class="org-list"> <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
+                <button class="btttn orgName">${elm.name}</button>
+                </br>
+                <h8>
+                    ${description}
+                </h8>
+                </div>
+                <hr>`
+
+                orgsEl.innerHTML += inner;
+
+
+            })
+    }
+    // console.log(description);
+    
 
 
 
-    orgsEl.innerHTML += inner;
 
     // <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
     //             <button class="btttn orgName">NAME HERE</button>
