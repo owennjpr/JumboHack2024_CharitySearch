@@ -7,6 +7,7 @@ const API_URL = BASE_URL + API_KEY;
 // const searchURL = BASE_URL + '/search/movie?'+API_KEY;
 
 const tagsEl = document.getElementById('tags');
+const orgsEl = document.getElementById('orgs');
 
 const causes = [
     "aapi-led",
@@ -163,8 +164,28 @@ function searchTag(tag) {
 }
 
 function displayOrg(elm) {
-    console.log(elm.name);
-    console.log(elm.description);
+    // console.log(elm.name);
+    console.log(elm.logURL);
+
+    let inner = `<div class="org-list"> <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
+    <button class="btttn orgName">${elm.name}</button>
+    </br>
+    <h8>
+        ${elm.description}
+    </h8>
+    </div>
+    <hr>`
+
+
+
+    orgsEl.innerHTML += inner;
+
+    // <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
+    //             <button class="btttn orgName">NAME HERE</button>
+    //     </br>
+    //             <h8>
+    //                 DESCRIPTION HERE
+    //             </h8>
 }
 
 // console.log("hiiiiii");
