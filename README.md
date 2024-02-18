@@ -1,5 +1,5 @@
 # Non-Profit Search for Jumbohack 2024 
-
+ hi
 ## The Project
 The goal of our project was to create a simple way for people to effectively connect with and discover charities and non-profits. Our website allows users to filter through charities by cause so that they can hopefully narrow down further on the specific issues they are passionate about. 
 
