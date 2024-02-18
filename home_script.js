@@ -123,7 +123,7 @@ function searchTag(tag) {
     // res = fetch("https://partners.every.org/v0.2/search/tags=ukraine&tags=dogs?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 
     // res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
-    res = fetch("https://partners.every.org/v0.2/search/page=1,causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+    res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 			.then (res => res.text())
 			.then (data => 
 			{
@@ -137,6 +137,36 @@ function searchTag(tag) {
 
 			})
 			.catch (error => console.log(error))
+    // res = fetch("https://partners.every.org/v0.2/browse/animals,take=50?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+	// 		.then (res => res.text())
+	// 		.then (data => 
+	// 		{
+	// 			data = JSON.parse(data);
+    //             console.log(data);
+
+    //             const orgs = data.nonprofits;
+    //             for (const element of orgs) {
+    //                 displayOrg(element);
+    //             }
+
+	// 		})
+	// 		.catch (error => console.log(error))
+
+
+    // res = fetch("https://partners.every.org/v0.2/browse/" + allTags + "&page=3?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+	// 		.then (res => res.text())
+	// 		.then (data => 
+	// 		{
+	// 			data = JSON.parse(data);
+    //             console.log(data);
+
+    //             const orgs = data.nonprofits;
+    //             for (const element of orgs) {
+    //                 displayOrg(element);
+    //             }
+
+	// 		})
+	// 		.catch (error => console.log(error))
 
     // res = fetch("https://partners.every.org/v0.2/search/page=3,page=4,causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 	// 		.then (res => res.text())
