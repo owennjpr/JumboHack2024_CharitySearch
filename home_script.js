@@ -119,7 +119,7 @@ function searchTag(tag) {
         let allTags = "";
         if (currSelection.length > 1) {
             for (const curr of currSelection) {
-                allTags += "&causes=" + curr;
+                allTags += "&tags=" + curr;
             }
             allTags = allTags.substring(1, allTags.length);
             allTags = allTags.substring(allTags.indexOf("&"), allTags.length);
@@ -131,7 +131,7 @@ function searchTag(tag) {
         // res = fetch("https://partners.every.org/v0.2/search/tags=ukraine&tags=dogs?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 
         // res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
-        res = fetch("https://partners.every.org/v0.2/search/causes=" + currSelection.at(0) + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778" + allTags + "&take=50")
+        res = fetch("https://partners.every.org/v0.2/search/veterans?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778&adoption&take=20")
                 .then (res => res.text())
                 .then (data => 
                 {
@@ -145,8 +145,8 @@ function searchTag(tag) {
 
                 })
                 .catch (error => console.log(error))
-    }
-    // res = fetch("https://partners.every.org/v0.2/browse/animals,take=50?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+    
+    // res = fetch("https://partners.every.org/v0.2/browse/wildlife?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778&tagName=cats&take=25")
 	// 		.then (res => res.text())
 	// 		.then (data => 
 	// 		{
@@ -160,7 +160,7 @@ function searchTag(tag) {
 
 	// 		})
 	// 		.catch (error => console.log(error))
-
+    }
 
     // res = fetch("https://partners.every.org/v0.2/browse/" + allTags + "&page=3?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 	// 		.then (res => res.text())
