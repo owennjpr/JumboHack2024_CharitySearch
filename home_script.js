@@ -79,36 +79,7 @@ const causes = [
 
 let currSelection = [];
 
-// can use currSelection.includes(NAME);
-// currSelection.push(NAME);
-
-
 makeTags();
-
-// for 
-
-// res = fetch("https://partners.every.org/v0.2/nonprofit/maps?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
-// 			.then (res => res.text())
-// 			.then (data => 
-// 			{
-// 				data = JSON.parse(data);
-//                 console.log(data);
-//                 // gets charity tags
-//                 const tags = data.data.nonprofitTags;
-
-//                 // sends each tag to makeTag
-//                 for (const element of tags) {
-//                     makeTag(element);
-//                     console.log(element.tagName);
-//                 }
-//                 console.log(tags)
-// 				// alert(JSON.stringify(data));
-// 				// let name = data.name;
-// 				// let age = data.age;
-// 				// let count = data.count;
-// 				// document.getElementById("fetchData").innerHTML = "guess of age based on name " + name + ": " + age + ". This means you would be born in " + count;
-// 			})
-// 			.catch (error => console.log(error))
 
 // makes each tag element
 function makeTags() {
@@ -119,21 +90,24 @@ function makeTags() {
 
     }
 
-    // inner = `<button class="btn filters" id="${tag.tagName}" onclick="searchTag(${tag.tagName})" >${tag.title}</button>`
-    // console.log("AFTER INNER MADE");
     tagsEl.innerHTML = inner;
 
 }
 
 function searchTag(tag) {
-
+    const toChange = document.getElementById(tag);
     if (currSelection.includes(tag)) { // if tag already been called then should take off on click
         let index = currSelection.indexOf(tag);
         console.log("INDEX OF " + tag + "   " + index + "   " + currSelection);
         currSelection.splice(index, 1);
-        // delete currSelection[currSelection.indexOf(tag)];
+        toChange.style.backgroundColor = "inherit";
+        toChange.style.color = "#74c074";
+
     } else {
         currSelection.push(tag);
+        
+        toChange.style.backgroundColor = "#74c074";
+        toChange.style.color = "white";
     }
 
     let allTags = "";
@@ -145,8 +119,6 @@ function searchTag(tag) {
     console.log("ALL TAGS: " + allTags);
 
 
-    // fetch("https://partners.every.org/v0.2/browse/animals?apiKey=myPublicApiKey");
-    // console.log("HERE IS THE FETCH CALL: " + "https://partners.every.org/v0.2/browse/" + tag + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
     res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 			.then (res => res.text())
 			.then (data => 
@@ -157,37 +129,13 @@ function searchTag(tag) {
                 const orgs = data.nonprofits;
                 for (const element of orgs) {
                     displayOrg(element);
-                    // console.log(element.tagName);
                 }
-                // gets charity tags
-//                 const tags = data.data.nonprofitTags;
 
-//                 // sends each tag to makeTag
-//                 for (const element of tags) {
-//                     makeTag(element);
-//                     console.log(element.tagName);
-//                 }
-                // gets charity tags
-                // const tags = data.data.nonprofitTags;
-
-                // // sends each tag to makeTag
-                // for (const element of tags) {
-                //     makeTag(element);
-                //     console.log(element.tagName);
-                // }
-                // console.log(tags)
-				// alert(JSON.stringify(data));
-				// let name = data.name;
-				// let age = data.age;
-				// let count = data.count;
-				// document.getElementById("fetchData").innerHTML = "guess of age based on name " + name + ": " + age + ". This means you would be born in " + count;
 			})
 			.catch (error => console.log(error))
 }
 
 function displayOrg(elm) {
-    // console.log(elm.name);
-    // console.log(elm.logURL);
     let description = "";
     if (!(elm.ein === undefined)) {
         res = fetch("https://partners.every.org/v0.2/nonprofit/" + elm.ein + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
@@ -212,7 +160,6 @@ function displayOrg(elm) {
                     elmUrl = "blankLogo.png"
                 }
                 console.log(url + "     EIN");
-                // let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.coverImageUrl}" alt="orgPic" class="orgPic">
                 let inner = `<div class="org-list"> <img class="orgPic" src="${elmUrl}" alt="orgPic" class="orgPic">
 
                 <a href="${url}">${elm.name}</a>
@@ -243,7 +190,6 @@ function displayOrg(elm) {
                     url = data.data.nonprofit.websiteUrl;
                 }
                 console.log(url);
-                // let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.coverImageUrl}" alt="orgPic" class="orgPic">
                 let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.logoUrl}" alt="orgPic" class="orgPic">
                 <a href="${url}">${elm.name}</a>
 
@@ -259,74 +205,5 @@ function displayOrg(elm) {
 
             })
     }
-    // console.log(description);
     
-
-
-
-
-    // <img class="orgPic" src="alana.jpg" alt="orgPic" class="orgPic">
-    //             <button class="btttn orgName">NAME HERE</button>
-    //     </br>
-    //             <h8>
-    //                 DESCRIPTION HERE
-    //             </h8>
 }
-
-// console.log("hiiiiii");
-// fetch("https://partners.every.org/v0.2/nonprofit/maps?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
-//         .then(res => res.json())
-//         .then(data => {console.log(data.results)})
-
-// fetch(`https://partners.every.org/v0.2/fundraiser`, {
-//   method: HttpMethod.POST,
-//   headers: {
-//     "Content-Type": "application/json",
-//     /* eslint-enable @typescript-eslint/naming-convention */
-//     Authorization: `Basic ${Buffer.from(`${pk_live_3fcf5c20985c68d7907fc33ea5ef9778}:${sk_live_f655a256a8945f823f6949fa40ad09da}`).toString(
-//       "base64"
-//     )}`,
-//   },
-//   body: {
-//     ...fundraiserInfo,
-//   },
-// });
-
-
-// getCharities(API_URL);
-
-// function getCharities(url) {
-  
-//   lastUrl = url;
-//   console.log("url in getCharities func: " + url);
-//     fetch(url).then(res => res.json()).then(data => {
-//         console.log(data.results)
-//         // if(data.results.length !== 0){
-//         //     showMovies(data.results);
-//         //     currentPage = data.page;
-//         //     nextPage = currentPage + 1;
-//         //     prevPage = currentPage - 1;
-//         //     totalPages = data.total_pages;
-
-//         //     current.innerText = currentPage;
-
-//         //     if(currentPage <= 1){
-//         //       prev.classList.add('disabled');
-//         //       next.classList.remove('disabled')
-//         //     }else if(currentPage>= totalPages){
-//         //       prev.classList.remove('disabled');
-//         //       next.classList.add('disabled')
-//         //     }else{
-//         //       prev.classList.remove('disabled');
-//         //       next.classList.remove('disabled')
-//         //     }
-
-//         //     tagsEl.scrollIntoView({behavior : 'smooth'})
-
-//         // }else{
-//         //     main.innerHTML= `<h1 class="no-results">No Results Found</h1>`
-//         // }
-       
-//     })
-
-// }
