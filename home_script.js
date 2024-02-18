@@ -123,7 +123,7 @@ function searchTag(tag) {
     // res = fetch("https://partners.every.org/v0.2/search/tags=ukraine&tags=dogs?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 
     // res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
-    res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+    res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778&take=50")
 			.then (res => res.text())
 			.then (data => 
 			{
