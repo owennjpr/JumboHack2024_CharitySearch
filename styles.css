@@ -70,8 +70,8 @@ ul.nav {
   border: #2d2d2d;
   border-style: solid;
   border-width: 4px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
   padding-top: 10px;
   padding-bottom: 10px;
 
@@ -155,7 +155,7 @@ ul.nav li {display: inline-block; padding: 0 50px}
 
 .orgPic {float: left; height:50px; margin-right:10px}
 
-.org-list {display: inline-block; margin-top: 10px;}
+.org-list {display: inline-block; margin-top: 10px; padding-left: 40px; padding-right: 40px;}
 
 .about-list {display: inline-block; margin: 20px;}
 
