@@ -1,7 +1,7 @@
 /*background color and image*/
-body {background-color: #f6f0e9;}
- div.background{ background-color: #2d2d2d;
-background-repeat: no-repeat; display: block; background-size: 100%; background-position-y: top;} */
+html {margin: 0px; padding: 0px;}
+body {background-color: #f6f0e9; margin: 0px; padding: 0px;}
+ div.background{ background-color: #2d2d2d; display: block; background-size: 100%; background-position-y: top; margin: 0px; padding: 0px;}
 
 /*menu styling*/
 div.menu{ background-color: #2d2d2d; display: table; /* keep the background color wrapped tight */
@@ -10,6 +10,8 @@ div.menu{ background-color: #2d2d2d; display: table; /* keep the background colo
 
 /*font styling*/
 h1 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 0px; padding-bottom: 15px; border-bottom: 4px solid #2d2d2d; font-size: 30;}
+h2 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 10px; font-size: 30; margin: 10px;}
+
 
 .standard-txt {
   color: #2d2d2d; 
@@ -88,7 +90,6 @@ ul.nav li {display: inline-block; padding: 0 50px}
     ul.nav li {padding: 0 10px}
     ul.nav a {font-size: 18;}
     h1 {font-size: 24px;}
-    h2 {font-size: 20px;}
     h3 {font-size: 18;}
     h4 {font-size: 30;}
     h5 {font-size: 18;}
