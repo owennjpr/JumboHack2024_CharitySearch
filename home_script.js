@@ -1,5 +1,4 @@
-// var http = require("http");
-
+// Make some data structure for taking 
 
 const API_KEY = 'pk_live_3fcf5c20985c68d7907fc33ea5ef9778';
 const BASE_URL = 'https://partners.every.org/v0.2/nonprofit/maps?apiKey=';
@@ -78,6 +77,12 @@ const causes = [
     "youth"
 ]
 
+let currSelection = [];
+
+// can use currSelection.includes(NAME);
+// currSelection.push(NAME);
+
+
 makeTags();
 
 // for 
@@ -121,11 +126,28 @@ function makeTags() {
 }
 
 function searchTag(tag) {
-    // console.log("IN SEARCH TAG: " + tag);
+
+    if (currSelection.includes(tag)) { // if tag already been called then should take off on click
+        let index = currSelection.indexOf(tag);
+        console.log("INDEX OF " + tag + "   " + index + "   " + currSelection);
+        currSelection.splice(index, 1);
+        // delete currSelection[currSelection.indexOf(tag)];
+    } else {
+        currSelection.push(tag);
+    }
+
+    let allTags = "";
+
+    for (const curr of currSelection) {
+        allTags += curr + ",";
+    }
+    allTags = allTags.substring(0, allTags.length - 1);
+    console.log("ALL TAGS: " + allTags);
+
 
     // fetch("https://partners.every.org/v0.2/browse/animals?apiKey=myPublicApiKey");
     // console.log("HERE IS THE FETCH CALL: " + "https://partners.every.org/v0.2/browse/" + tag + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
-    res = fetch("https://partners.every.org/v0.2/browse/" + tag + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+    res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 			.then (res => res.text())
 			.then (data => 
 			{
@@ -175,11 +197,25 @@ function displayOrg(elm) {
                 data = JSON.parse(data);
                 console.log(data)
                 let description = data.data.nonprofit.description;
-                console.log(data.data.nonprofit.websiteUrl + "     EIN");
+                let url = "";
+                if (data.data.nonprofit.websiteUrl == null) {
+                    url = data.data.nonprofit.profileUrl;
+                } else {
+                    url = data.data.nonprofit.websiteUrl;
+                }
+                let elmUrl = "";
+                if (elm.logoUrl !== undefined) {
+                    elmUrl = elm.logoUrl;
+                } else if (data.data.nonprofit.logoUrl !== undefined) {
+                    elmUrl = data.data.nonprofit.logoUrl;
+                } else {
+                    elmUrl = "owen.jpg"
+                }
+                console.log(url + "     EIN");
                 // let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.coverImageUrl}" alt="orgPic" class="orgPic">
-                let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.logoUrl}" alt="orgPic" class="orgPic">
+                let inner = `<div class="org-list"> <img class="orgPic" src="${elmUrl}" alt="orgPic" class="orgPic">
 
-                <a href="${data.data.nonprofit.websiteUrl}">${elm.name}</a>
+                <a href="${url}">${elm.name}</a>
                 </br>
                 <h8>
                     ${description}
@@ -199,10 +235,17 @@ function displayOrg(elm) {
                 data = JSON.parse(data);
                 console.log(data)
                 let description = data.data.nonprofit.description;
-                console.log(data.data.nonprofit.websiteUrl);
+                let url = "";
+                if (data.data.nonprofit.websiteUrl === null) {
+                    console.log("IS NULL");
+                    url = data.data.nonprofit.profileUrl;
+                } else {
+                    url = data.data.nonprofit.websiteUrl;
+                }
+                console.log(url);
                 // let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.coverImageUrl}" alt="orgPic" class="orgPic">
                 let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.logoUrl}" alt="orgPic" class="orgPic">
-                <a href="${data.data.nonprofit.websiteUrl}">${elm.name}</a>
+                <a href="${url}">${elm.name}</a>
 
                 </br>
                 <h8>
