@@ -95,23 +95,33 @@ function makeTags() {
 }
 
 function searchTag(tag) {
+    if (currSelection.length < 2 || (currSelection.includes(tag))) {
     orgsEl.innerHTML = "";
 
-    
 
     const toChange = document.getElementById(tag);
     if (currSelection.includes(tag)) { // if tag already been called then should take off on click
         let index = currSelection.indexOf(tag);
         console.log("INDEX OF " + tag + "   " + index + "   " + currSelection);
         currSelection.splice(index, 1);
-        toChange.style.backgroundColor = "inherit";
-        toChange.style.color = "#74c074";
+        toChange.style = "inherit";
+        if (index == 0 && currSelection.length != 0) {
+            const toUpdate = document.getElementById(currSelection.at(0));
+            toUpdate.style.backgroundColor = "#74c074";
+
+        }
 
     } else {
         currSelection.push(tag);
         
-        toChange.style.backgroundColor = "#74c074";
+        if (currSelection.length == 2) {
+                toChange.style.backgroundColor = "#426942";
+    
+        } else {
+            toChange.style.backgroundColor = "#74c074";
+        }
         toChange.style.color = "white";
+
     }
 
     if (currSelection.length !== 0) {
@@ -129,9 +139,9 @@ function searchTag(tag) {
         
 
         // res = fetch("https://partners.every.org/v0.2/search/tags=ukraine&tags=dogs?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
-
-        // res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
-        res = fetch("https://partners.every.org/v0.2/search/veterans?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778&adoption&take=20")
+        // currSelection.at(0)
+        res = fetch("https://partners.every.org/v0.2/search/" + currSelection.at(0) + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778" + allTags + "&take=30")
+        // res = fetch("https://partners.every.org/v0.2/search/lgbt?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778&education")
                 .then (res => res.text())
                 .then (data => 
                 {
@@ -146,20 +156,21 @@ function searchTag(tag) {
                 })
                 .catch (error => console.log(error))
     
-    // res = fetch("https://partners.every.org/v0.2/browse/wildlife?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778&tagName=cats&take=25")
-	// 		.then (res => res.text())
-	// 		.then (data => 
-	// 		{
-	// 			data = JSON.parse(data);
-    //             console.log(data);
+    // res = fetch("https://partners.every.org/v0.2/browse/"+ currSelection.at(0)+"?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778"+ allTags)
+			// .then (res => res.text())
+			// .then (data => 
+			// {
+			// 	data = JSON.parse(data);
+            //     console.log(data);
 
-    //             const orgs = data.nonprofits;
-    //             for (const element of orgs) {
-    //                 displayOrg(element);
-    //             }
+            //     const orgs = data.nonprofits;
+            //     for (const element of orgs) {
+            //         displayOrg(element);
+            //     }
 
-	// 		})
-	// 		.catch (error => console.log(error))
+			// })
+			// .catch (error => console.log(error))
+        }
     }
 
     // res = fetch("https://partners.every.org/v0.2/browse/" + allTags + "&page=3?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
@@ -222,15 +233,14 @@ function displayDescriptionLong(orgID) {
                 elmUrl = "blankLogo.png"
             }
 
-            let inner = `<div class="org-list" id="${orgID}"> <img class="orgPic" src="${elmUrl}" alt="orgPic" class="orgPic">
+            let inner = `<img class="orgPic" src="${elmUrl}" alt="orgPic" class="orgPic">
 
              <a href="${url}">${data.data.nonprofit.name}</a>
             </br>
             <h8>
             ${outText}
             </h8>
-            <button class="btn filters" id="btn${orgID}" onclick=revertDescriptionLong("${orgID}")>read less</button>
-            </div>`  
+            <button class="btn filters" id="btn${orgID}" onclick=revertDescriptionLong("${orgID}")>read less</button>`  
         
             toReplace.innerHTML = inner;
         })
@@ -265,15 +275,14 @@ function revertDescriptionLong(orgID) {
                 elmUrl = "blankLogo.png"
             }
 
-            let inner = `<div class="org-list" id="${orgID}"> <img class="orgPic" src="${elmUrl}" alt="orgPic" class="orgPic">
+            let inner = `<img class="orgPic" src="${elmUrl}" alt="orgPic" class="orgPic">
 
              <a href="${url}">${data.data.nonprofit.name}</a>
             </br>
             <h8>
             ${outText}
             </h8>
-            <button class="btn filters" id="btn${orgID}" onclick=displayDescriptionLong("${orgID}")>read more</button>
-            </div>`  
+            <button class="btn filters" id="btn${orgID}" onclick=displayDescriptionLong("${orgID}")>read more</button>`  
         
             toReplace.innerHTML = inner;
         })

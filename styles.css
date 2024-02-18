@@ -10,7 +10,7 @@ div.menu{ background-color: #2d2d2d; display: table; /* keep the background colo
 
 /*font styling*/
 h1 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 0px; padding-bottom: 15px; border-bottom: 4px solid #2d2d2d; font-size: 30;}
-h2 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 10px; font-size: 30; margin: 10px;}
+h2 {color : #74c074; font-family:Helvetica, sans-serif; text-align:center; padding-top: 10px; font-size: 30; margin: 10px; padding-left: 100px; padding-right: 100px;}
 
 
 .standard-txt {
@@ -160,3 +160,6 @@ ul.nav li {display: inline-block; padding: 0 50px}
 .about-list {display: inline-block; margin: 20px;}
 
 .bioPic {float: left; height:100px; margin-right:10px}
+
+.lightgreen {color: white; background-color: #74c074; border: none; border-radius: 4px; padding: 3px;}
+.darkgreen {color: white; background-color: #426942; border: none; border-radius: 4px; padding: 3px;}
