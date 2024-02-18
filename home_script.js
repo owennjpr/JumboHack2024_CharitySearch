@@ -209,7 +209,7 @@ function displayOrg(elm) {
                 } else if (data.data.nonprofit.logoUrl !== undefined) {
                     elmUrl = data.data.nonprofit.logoUrl;
                 } else {
-                    elmUrl = "owen.jpg"
+                    elmUrl = "blankLogo.png"
                 }
                 console.log(url + "     EIN");
                 // let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.coverImageUrl}" alt="orgPic" class="orgPic">
