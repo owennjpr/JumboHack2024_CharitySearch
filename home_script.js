@@ -118,8 +118,12 @@ function searchTag(tag) {
     allTags = allTags.substring(0, allTags.length - 1);
     console.log("ALL TAGS: " + allTags);
 
+    orgsEl.innerHTML = "";
 
-    res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+    // res = fetch("https://partners.every.org/v0.2/search/tags=ukraine&tags=dogs?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+
+    // res = fetch("https://partners.every.org/v0.2/search/causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+    res = fetch("https://partners.every.org/v0.2/search/page=1,causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
 			.then (res => res.text())
 			.then (data => 
 			{
@@ -133,6 +137,21 @@ function searchTag(tag) {
 
 			})
 			.catch (error => console.log(error))
+
+    // res = fetch("https://partners.every.org/v0.2/search/page=3,page=4,causes=" + allTags + "?apiKey=pk_live_3fcf5c20985c68d7907fc33ea5ef9778")
+	// 		.then (res => res.text())
+	// 		.then (data => 
+	// 		{
+	// 			data = JSON.parse(data);
+    //             console.log(data);
+
+    //             const orgs = data.nonprofits;
+    //             for (const element of orgs) {
+    //                 displayOrg(element);
+    //             }
+
+	// 		})
+	// 		.catch (error => console.log(error))
 }
 
 function displayOrg(elm) {
@@ -189,8 +208,17 @@ function displayOrg(elm) {
                 } else {
                     url = data.data.nonprofit.websiteUrl;
                 }
+
+                let elmUrl = "";
+                if (elm.logoUrl !== undefined) {
+                    elmUrl = elm.logoUrl;
+                } else if (data.data.nonprofit.logoUrl !== undefined) {
+                    elmUrl = data.data.nonprofit.logoUrl;
+                } else {
+                    elmUrl = "blankLogo.png"
+                }
                 console.log(url);
-                let inner = `<div class="org-list"> <img class="orgPic" src="${data.data.nonprofit.logoUrl}" alt="orgPic" class="orgPic">
+                let inner = `<div class="org-list"> <img class="orgPic" src="${elmUrl}" alt="orgPic" class="orgPic">
                 <a href="${url}">${elm.name}</a>
 
                 </br>
